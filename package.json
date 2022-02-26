@@ -1,6 +1,6 @@
 {
   "name": "j2y",
-  "version": "0.1.12",
+  "version": "0.1.14",
   "description": "JSON to Yup or Yup as config lets you save Yup validation as YAML or JSON.",
   "main": "index.js",
   "types": "index.d.ts",

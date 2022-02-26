@@ -4,6 +4,14 @@ export interface JsonString extends JsonMixed<"string"> {
         value: number;
         message: string;
     };
+    min?: number | {
+        value: number;
+        message: string;
+    };
+    max?: number | {
+        value: number;
+        message: string;
+    };
     email?: string | {
         value: string;
         message: string;
