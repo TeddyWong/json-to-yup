@@ -1,4 +1,4 @@
-import {JsonMixed} from "./mixed";
+import { JsonMixed } from "./mixed";
 
 export interface JsonDate extends JsonMixed<"date"> {
   min: string | number | { value: string | number; message: string };

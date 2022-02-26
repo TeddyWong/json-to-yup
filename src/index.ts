@@ -1,7 +1,7 @@
 import * as yup from "yup";
-import { Schema } from "yup";
-import { JsonSchema, JsonType } from "@/schema";
-import { When } from "@/types";
+import { SchemaOf } from "yup";
+import { JsonSchema, JsonType } from "./schema";
+import { When } from "./types";
 
 const yupMap: { [key: string]: () => any } = {
   string: yup.string,
@@ -59,7 +59,7 @@ const yupSchema = (attribute: JsonType) => {
 };
 
 export const jsonToYup = (js: JsonSchema) => {
-  const fields: Record<string, Schema<any>> = {};
+  const fields: Record<string, SchemaOf<any>> = {};
   Object.keys(js).forEach((attributeName) => {
     const attribute = js[attributeName];
     fields[attributeName] = yupSchema(attribute);

@@ -1,6 +1,5 @@
-import { JsonData, JsonDataType } from "./types";
 import { JsonMixed } from "./mixed";
-import { JsonType } from "@/schema";
+import { JsonType } from "./schema";
 
 export interface JsonArray extends JsonMixed<"array"> {
   of?: JsonType;

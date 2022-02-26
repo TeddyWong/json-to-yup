@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.jsonToYup = void 0;
 const yup = require("yup");
 const yupMap = {
     string: yup.string,
@@ -11,6 +12,8 @@ const yupMap = {
     object: yup.object,
 };
 const yupSchema = (attribute) => {
+    if (!yupMap[attribute.type])
+        throw new Error(`No type found in ${JSON.stringify(attribute)}`);
     let yupFn = yupMap[attribute.type]();
     Object.keys(attribute).forEach((property) => {
         const value = attribute[property];
@@ -19,7 +22,12 @@ const yupSchema = (attribute) => {
                 break;
             }
             case "of": {
-                yupFn = yupFn.of(yupSchema(attribute).of);
+                if (value.type === "object") {
+                    yupFn = yupFn.of((0, exports.jsonToYup)(value.shape));
+                }
+                else {
+                    yupFn = yupFn.of(yupSchema(value));
+                }
                 break;
             }
             case "when": {
@@ -51,7 +59,7 @@ const yupSchema = (attribute) => {
     });
     return yupFn;
 };
-exports.jsonToYup = (js) => {
+const jsonToYup = (js) => {
     const fields = {};
     Object.keys(js).forEach((attributeName) => {
         const attribute = js[attributeName];
@@ -59,6 +67,7 @@ exports.jsonToYup = (js) => {
     });
     return yup.object().shape(fields);
 };
+exports.jsonToYup = jsonToYup;
 exports.default = {
     jsonToYup: exports.jsonToYup,
 };

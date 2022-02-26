@@ -1,13 +1,13 @@
-import {JsonType} from "./schema";
+import { JsonType } from "./schema";
 
 export type JsonDataType =
-    | "string"
-    | "number"
-    | "object"
-    | "date"
-    | "boolean"
-    | "mixed"
-    | "array";
+  | "string"
+  | "number"
+  | "object"
+  | "date"
+  | "boolean"
+  | "mixed"
+  | "array";
 
 export interface JsonData<T extends JsonDataType> {
   type: T;

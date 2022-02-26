@@ -1,3 +1,3 @@
 import { JsonMixed } from "./mixed";
 
-export interface JsonBoolean extends JsonMixed<"boolean"> {}
+export interface JsonBoolean extends JsonMixed<"boolean"> { }

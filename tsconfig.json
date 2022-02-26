@@ -7,9 +7,6 @@
         "noImplicitThis": false,
         "target": "esnext",
         "baseUrl": ".",
-        "paths": {
-            "@/*": ["src/*"]
-        },
         "experimentalDecorators": true,
         "strictNullChecks": true,
         "noImplicitAny": true,

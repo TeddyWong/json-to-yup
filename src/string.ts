@@ -1,4 +1,4 @@
-import {JsonMixed} from "./mixed";
+import { JsonMixed } from "./mixed";
 
 export interface JsonString extends JsonMixed<"string"> {
   length?: number | { value: number; message: string };
